@@ -5,6 +5,8 @@ import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,12 +31,12 @@ public class StudentController {
 	}
 	
 	@PostMapping("/addStudent")
-	public Student1 addStudent(@RequestBody StudentDto studentDto) {
+	public ResponseEntity<StudentDto> addStudent(@RequestBody StudentDto studentDto) {
 		Student1 studentRequest=modelMapper.map(studentDto, Student1.class);
 		Student1 student1=studentService.addstudent(studentRequest);
 		
 		StudentDto studentResponse=modelMapper.map(student1, StudentDto.class);
 		
-		return student1;
+		return new ResponseEntity<StudentDto>(studentResponse, HttpStatus.CREATED);
 	}
 }

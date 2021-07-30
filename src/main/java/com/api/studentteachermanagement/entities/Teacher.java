@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Teacher {
 
@@ -18,8 +20,17 @@ public class Teacher {
 	private String teacherName;
 	private String phoneNum;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "teacher")
 	private List<Student1>student;
+	
+	public List<Student1> getStudent() {
+		return student;
+	}
+
+	public void setStudent(List<Student1> student) {
+		this.student = student;
+	}
 
 	public Teacher() {
 		
@@ -49,13 +60,4 @@ public class Teacher {
 		this.phoneNum = phoneNum;
 	}
 
-	public List<Student1> getStudent() {
-		return student;
-	}
-
-	public void setStudent(List<Student1> student) {
-		this.student = student;
-	}
-	
-	
 }

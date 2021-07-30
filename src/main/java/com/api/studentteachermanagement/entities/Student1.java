@@ -6,6 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 public class Student1 {
@@ -17,10 +19,18 @@ public class Student1 {
 	private Long studentRollNumber;
 	private String address;
 	
-	
+	@JsonIgnore
 	@ManyToOne
 	private Teacher teacher;
 	
+	public Teacher getTeacher() {
+		return teacher;
+	}
+
+	public void setTeacher(Teacher teacher) {
+		this.teacher = teacher;
+	}
+
 	public Student1() {
 		
 	}
@@ -55,14 +65,6 @@ public class Student1 {
 
 	public void setAddress(String address) {
 		this.address = address;
-	}
-
-	public Teacher getTeacher() {
-		return teacher;
-	}
-
-	public void setTeacher(Teacher teacher) {
-		this.teacher = teacher;
 	}
 	
 }

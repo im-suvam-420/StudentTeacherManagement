@@ -13,7 +13,6 @@ public class TeacherDto {
 	private List<Student1>student;
 	
 	
-	
 	public List<Student1> getStudent() {
 		return student;
 	}

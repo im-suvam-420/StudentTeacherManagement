@@ -11,7 +11,6 @@ public class StudentDto {
 	
 	private Teacher teacher;
 	
-	
 	public Teacher getTeacher() {
 		return teacher;
 	}
