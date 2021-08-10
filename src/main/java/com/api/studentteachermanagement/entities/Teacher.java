@@ -3,6 +3,7 @@ package com.api.studentteachermanagement.entities;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,7 +22,7 @@ public class Teacher {
 	private String phoneNum;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "teacher")
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "teacher")
 	private List<Student1>student;
 	
 	public List<Student1> getStudent() {

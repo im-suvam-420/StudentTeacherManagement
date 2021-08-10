@@ -1,12 +1,12 @@
 package com.api.studentteachermanagement.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Entity
@@ -19,8 +19,7 @@ public class Student1 {
 	private Long studentRollNumber;
 	private String address;
 	
-	@JsonIgnore
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Teacher teacher;
 	
 	public Teacher getTeacher() {
