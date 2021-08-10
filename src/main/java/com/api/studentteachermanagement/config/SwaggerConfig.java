@@ -23,7 +23,7 @@ public class SwaggerConfig {
 	   private ApiInfo apiInfo() {
 	       return new ApiInfoBuilder()
 	            .title("StudentTeacherManagement")
-	            .description("It is Description of School")
+	            .description("It is a Student Teacher Management System")
 	            .build();
 	   }
 }
